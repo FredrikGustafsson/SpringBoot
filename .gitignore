@@ -1,0 +1,15 @@
+# This file contains intentionally untracked files that git should ignore 
+.metadata/
+.settings/
+**/target/
+.classpath
+.project
+*.orig
+**/rebel.xml
+**/.codepro
+*.log
+**/.tern-project
+rebel.xml
+/bin
+.idea/
+**/*.iml
