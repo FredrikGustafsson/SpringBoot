@@ -5,7 +5,7 @@
             $routeProvider.
                 when('/showall', {
                     templateUrl: 'showall.html',
-                    controller: 'BookController'
+                    controller: 'ShowController'
                 }).
                 when('/showid', {
                     templateUrl: 'showId.html',
