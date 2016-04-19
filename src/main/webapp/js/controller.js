@@ -24,8 +24,7 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
   };
   
   $scope.save = function () {
-	  var bookSaveResource = new BookSaveResource($scope.insert);
-	  bookSaveResource.$save($scope.insert,
+	  BookSaveResource.save($scope.insert,
 			  function(id){
 		  		$scope.insertText = id
 		  	},function(err) {
@@ -34,8 +33,7 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
   };
   
   $scope.updateBook = function () {
-	  var bookUpdateResource = new BookUpdateResource($scope.update);
-	  bookUpdateResource.$update($scope.update,
+	  BookUpdateResource.update($scope.update,
 			  function(id){
 		  		$scope.updateText = id
 		  	},function(err) {
