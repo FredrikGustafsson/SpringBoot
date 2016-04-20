@@ -11,6 +11,10 @@
                     templateUrl: 'showId.html',
                     controller: 'BookController'
                 }).
+                when('/showid:param', {
+                    templateUrl: 'showId.html',
+                    controller: 'BookController'
+                }).
                 when('/insert', {
                     templateUrl: 'insertId.html',
                     controller: 'BookController'

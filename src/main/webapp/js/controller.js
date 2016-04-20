@@ -1,12 +1,13 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('BookController',function($scope, BookResource, BookSaveResource, BookUpdateResource, BookDeleteResource) {
+myApp.controller('BookController',function($scope, BookResource, BookSaveResource, BookUpdateResource, BookDeleteResource, $routeParams) {
   
   //$scope.book = BookResource.query();
   
   $scope.id = "test";
   
-  
+  $scope.textid = $routeParams.param;
+
   $scope.showId = function () {
 	
 	  BookResource.showId({
@@ -15,6 +16,11 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
     	  $scope.id = id;
       });
   };
+
+  //showid at startup  
+  if($routeParams.param != ""){
+	  $scope.showId();  
+  }
   
   $scope.showAll = function () {
 		
