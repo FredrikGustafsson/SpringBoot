@@ -4,11 +4,7 @@ myApp.factory("BookDeleteResource", function($resource) {
 
      return $resource("/bookhouse/delete/:id", {id: '@id'}, {
          delete_book: {
-             method: 'DELETE',
-             transformResponse: function(data, headersGetter){
-                   return {data};
-                 }
-
+             method: 'DELETE'
          }
      });
 });

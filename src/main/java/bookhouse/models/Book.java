@@ -17,7 +17,7 @@ public class Book {
 	@Column(name="timestamp")
     private Date timeStamp;
 
-	protected Book(){}
+	public Book(){}
 
 	public Book(Long id,String name) {
 		this.id = id;

@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('BookController',function($scope, BookResource, BookSaveResource, BookUpdateResource, BookDeleteResource, $routeParams) {
+myApp.controller('BookController',function($scope, BookResource, BookSaveResource, BookUpdateResource,BookDeleteResource, $routeParams) {
   
   //$scope.book = BookResource.query();
   
@@ -21,13 +21,6 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
   if($routeParams.param != ""){
 	  $scope.showId();  
   }
-  
-  $scope.showAll = function () {
-		
-	  BookResource.showall(null, function(book) {
-    	  $scope.book = book; 
-      });
-  };
   
   $scope.save = function () {
 	  BookSaveResource.save($scope.insert,
@@ -50,11 +43,11 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
   $scope.deleteBook = function () {
 	  	  BookDeleteResource.delete_book($scope.delete_book,
 			  function(id){
-		  		if(id.data == "true"){
-		  			$scope.errors = "Customer Deleted";
-		  		} else {
-		  			$scope.errors = "Cant deleted customer";
-		  		}
+	  		  	if(id.errorStatus){
+	  		  		$scope.deleteText = "Customer removed";
+	  		  	} else {
+	  		  		$scope.deleteText = id.responseText;
+	  		  	}
 		  	},function(err) {
 		        $scope.errors = err.statusText;
 		      });	  

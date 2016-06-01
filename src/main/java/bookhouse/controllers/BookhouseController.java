@@ -1,6 +1,10 @@
 package bookhouse.controllers;
 
+import java.io.StringReader;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import bookhouse.models.Book;
 import bookhouse.models.BookRepository;
+import bookhouse.models.DeleteResponse;
 
 
 @RestController
 @RequestMapping("/bookhouse")
 public class BookhouseController {
-
+	
 @Autowired
 private BookRepository bookRepository;
 
@@ -69,15 +75,17 @@ private BookRepository bookRepository;
 
 
 	//http://localhost:8080/bookhouse/delete/123
-    @RequestMapping("/delete/{id}")
-    public Boolean delete(@PathVariable("id") Long id) {
-
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public DeleteResponse delete(@PathVariable("id") Long id) {
     	Book book = bookRepository.findOne(id);
-    	if(book != null){
-    		bookRepository.delete(book);
-    		return true;
+    	if (book == null){
+    		DeleteResponse resp = new DeleteResponse(false, "cant find customer");
+    		return resp;
     	}
-    	return false;    	
+  		bookRepository.delete(book);
+  		DeleteResponse resp = new DeleteResponse(true, "");
+  		return resp;
     }
 
  
