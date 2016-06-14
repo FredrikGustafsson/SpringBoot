@@ -18,7 +18,7 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
   };
 
   //showid at startup  
-  if($routeParams.param != ""){
+  if($routeParams.param != null){
 	  $scope.showId();  
   }
   
