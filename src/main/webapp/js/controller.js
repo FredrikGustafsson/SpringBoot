@@ -60,4 +60,8 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
 		
   };
   
+  $scope.goBack = function () {
+	    window.history.back();
+	}
+  
 });

@@ -80,7 +80,7 @@ private BookRepository bookRepository;
     public DeleteResponse delete(@PathVariable("id") Long id) {
     	Book book = bookRepository.findOne(id);
     	if (book == null){
-    		DeleteResponse resp = new DeleteResponse(false, "cant find customer");
+    		DeleteResponse resp = new DeleteResponse(false, "cant find book");
     		return resp;
     	}
   		bookRepository.delete(book);
