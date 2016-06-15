@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('BookController',function($scope, BookResource, BookSaveResource, BookUpdateResource,BookDeleteResource, $routeParams) {
+myApp.controller('BookController',function($scope, BookSaveResource, BookUpdateResource,BookDeleteResource, $routeParams) {
   
   //$scope.book = BookResource.query();
   
@@ -8,20 +8,6 @@ myApp.controller('BookController',function($scope, BookResource, BookSaveResourc
   
   $scope.textid = $routeParams.param;
 
-  $scope.showId = function () {
-	
-	  BookResource.showId({
-          id : $scope.textid
-      }, function(id) {
-    	  $scope.id = id;
-      });
-  };
-
-  //showid at startup  
-  if($routeParams.param != null){
-	  $scope.showId();  
-  }
-  
   $scope.save = function () {
 	  BookSaveResource.save($scope.insert,
 			  function(id){

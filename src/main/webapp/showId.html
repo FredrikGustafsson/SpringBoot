@@ -2,7 +2,7 @@
 <html>
 
 <body>
-<button type="button" class="btn btn-primary" ng-click="goBack()">Go Back</button>
+<button type="button" class="btn btn-primary" ng-click="goBack()" ng-show="showbutton">Go Back</button>
 <br>
 ID: <input type="text" ng-model="textid" ng-keypress="keyCheck($event)" required>  
 <button type="button" class="btn btn-primary" ng-click="showId()">Search Book</button>

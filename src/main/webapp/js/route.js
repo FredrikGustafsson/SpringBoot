@@ -9,11 +9,11 @@
                 }).
                 when('/showid', {
                     templateUrl: 'showId.html',
-                    controller: 'BookController'
+                    controller: 'ShowIdController'
                 }).
                 when('/showid:param', {
                     templateUrl: 'showId.html',
-                    controller: 'BookController'
+                    controller: 'ShowIdController'
                 }).
                 when('/insert', {
                     templateUrl: 'insertId.html',
